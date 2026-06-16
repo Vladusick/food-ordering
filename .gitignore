@@ -1,0 +1,25 @@
+# dependencies
+**/node_modules/
+
+# build
+**/dist/
+**/build/
+.nest/
+
+# env
+.env
+.env.*.local
+
+# logs
+*.log
+
+# OS
+.DS_Store
+
+# coverage
+coverage/
+.nyc_output/
+
+# IDE
+.vscode/
+.idea/
