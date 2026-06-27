@@ -5,6 +5,7 @@ type Dish = {
   id: number;
   name: string;
   price: number;
+  imageUrl: string;
 };
 
 function App() {
@@ -20,6 +21,11 @@ function App() {
 
       {dishes.map((dish) => (
         <div key={dish.id}>
+          <img
+            src={dish.imageUrl}
+            alt={dish.name}
+            width={200}
+          />
           <h2>{dish.name}</h2>
           <p>{dish.price} ₽</p>
         </div>
