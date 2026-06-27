@@ -10,4 +10,7 @@ export class Dish {
 
   @Column()
   price!: number;
+
+  @Column()
+  imageUrl!: string;
 }
