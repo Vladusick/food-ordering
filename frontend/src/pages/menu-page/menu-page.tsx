@@ -6,6 +6,8 @@ import { DishCard } from "../../components/dish-card/dish-card";
 import type { Dish } from "../../types/dish";
 
 import styles from "./menu-page.module.css";
+import { RestaurantHeader } from "../../components/restaraurant-header/restaurant-header";
+import { CategoryTabs } from "../../components/category-tabs/category-tabs";
 
 export const MenuPage = () => {
     const [dishes, setDishes] = useState<Dish[]>([]);
@@ -16,14 +18,16 @@ export const MenuPage = () => {
 
     return (
         <div className={styles.page}>
-              <h1>Кафе</h1>
-        <p>У дяди Сэма</p>
+            <RestaurantHeader/>
+            <CategoryTabs/>
+            <div className={styles.grid}>
             {dishes.map((dish) => (
                 <DishCard
                     key={dish.id}
                     dish={dish}
                 />
             ))}
+            </div>
         </div>
     );
 };

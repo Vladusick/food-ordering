@@ -1,0 +1,15 @@
+.tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.tab {
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    background: #f3f3f3;
+    white-space: nowrap;
+    cursor: pointer;
+}
