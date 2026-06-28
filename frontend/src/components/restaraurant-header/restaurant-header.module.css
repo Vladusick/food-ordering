@@ -1,0 +1,15 @@
+.header {
+    padding: 16px 0;
+}
+
+.title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.info {
+    margin-top: 6px;
+    color: #666;
+    font-size: 14px;
+}
