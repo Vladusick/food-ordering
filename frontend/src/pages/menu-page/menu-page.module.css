@@ -1,0 +1,14 @@
+.page {
+    max-width: 430px;
+    margin: 0 auto;
+    min-height: 100vh;
+
+    padding: 16px;
+    box-sizing: border-box;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+
+    background: gray;
+}
