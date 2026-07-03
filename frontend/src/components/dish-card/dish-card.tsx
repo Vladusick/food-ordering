@@ -7,11 +7,13 @@ type Props = {
 };
 
 export const DishCard = ({ dish }: Props) => {
+const imageUrl = `${import.meta.env.VITE_API_URL}${dish.imageUrl}`;
+
   return (
     <div className={styles.card}>
       <img
         className={styles.image}
-        src={dish.imageUrl}
+        src={imageUrl}
         alt={dish.name}
       />
 
