@@ -1,20 +1,20 @@
+import { categories } from "../../constants/categories";
 import styles from "./category-tabs.module.css";
 
-const categories = [
-    "Роллы",
-    "Пицца",
-    "Напитки",
-];
+type Props = {
+    onSelect: (id: string) => void;
+};
 
-export const CategoryTabs = () => {
+export const CategoryTabs = ({ onSelect }: Props) => {
     return (
         <div className={styles.tabs}>
             {categories.map(category => (
                 <button
-                    key={category}
+                    key={category.id}
                     className={styles.tab}
+                    onClick={() => onSelect(category.id)}
                 >
-                    {category}
+                    {category.title}
                 </button>
             ))}
         </div>
