@@ -13,3 +13,14 @@
     gap: 12px;
     margin-top: 16px;
 }
+
+.section {
+    margin-top: 24px;
+}
+
+.title {
+    margin: 0 0 12px;
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+}

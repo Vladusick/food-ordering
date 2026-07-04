@@ -13,4 +13,7 @@ export class Dish {
 
   @Column()
   imageUrl!: string;
+
+  @Column()
+  category!: string;
 }
