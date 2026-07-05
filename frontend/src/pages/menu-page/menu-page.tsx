@@ -40,6 +40,7 @@ export const MenuPage = () => {
                     <div className={styles.grid}>
                         {dishes
                             .filter(dish => dish.category === category.id)
+                            .sort((a, b) => a.sortOrder - b.sortOrder)
                             .map(dish => (
                                 <DishCard
                                     key={dish.id}
