@@ -16,4 +16,7 @@ export class Dish {
 
   @Column()
   category!: string;
+
+  @Column()
+  sortOrder!: number;
 }

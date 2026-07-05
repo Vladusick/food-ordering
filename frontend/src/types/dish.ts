@@ -4,4 +4,5 @@ export type Dish = {
   price: number;
   imageUrl: string;
   category: string;
+  sortOrder: number;
 };
