@@ -9,7 +9,13 @@ export class Dish {
   name!: string;
 
   @Column()
+  description!: string;
+
+  @Column()
   price!: number;
+
+  @Column()
+  weight!: number;
 
   @Column()
   imageUrl!: string;
