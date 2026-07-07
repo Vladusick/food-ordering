@@ -1,5 +1,6 @@
 import type { Dish } from "../../types/dish";
 import styles from "./dish-card.module.css";
+import { Link } from "react-router-dom";
 
 type Props = {
   dish: Dish;
@@ -9,7 +10,10 @@ export const DishCard = ({ dish }: Props) => {
   const imageUrl = `${import.meta.env.VITE_API_URL}${dish.imageUrl}`;
 
   return (
-    <div className={styles.card}>
+    <Link
+      to={`/dish/${dish.id}`}
+      className={styles.card}
+    >
       <div className={styles.imageWrapper}>
         <img
           className={styles.image}
@@ -17,7 +21,11 @@ export const DishCard = ({ dish }: Props) => {
           alt={dish.name}
         />
 
-        <button className={styles.button}>
+        <button className={styles.button} onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          alert("Тут будет добавление в корзину");
+        }}>
           +
         </button>
       </div>
@@ -31,6 +39,6 @@ export const DishCard = ({ dish }: Props) => {
           {dish.name}
         </h3>
       </div>
-    </div>
+    </Link>
   );
 };
