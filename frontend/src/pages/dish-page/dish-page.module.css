@@ -1,3 +1,68 @@
-.page {}
+.page {
+    max-width: 430px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: rgb(32, 32, 32);
+    color: white;
+}
 
-.content {}
+.image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 16px 120px;
+}
+
+.title {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.weight {
+    margin: 0;
+    font-size: 15px;
+    color: rgb(180, 180, 180);
+}
+
+.price {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.description {
+    margin: 0;
+    line-height: 1.6;
+    color: rgb(220, 220, 220);
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    position: fixed;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
+    width: calc(100% - 32px);
+    max-width: 398px;
+    height: 56px;
+    border: none;
+    border-radius: 18px;
+    background: white;
+    color: black;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
