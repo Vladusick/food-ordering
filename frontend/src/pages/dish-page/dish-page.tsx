@@ -33,26 +33,24 @@ export const DishPage = () => {
                 <h1 className={styles.title}>
                     {dish.name}
                 </h1>
-
-                <p className={styles.weight}>
-                    {dish.weight} г
-                </p>
-
-                <p className={styles.price}>
-                    {dish.price} ₽
-                </p>
-
                 <p className={styles.description}>
                     {dish.description}
                 </p>
-
+                <div className={styles.info}>
+                    <p className={styles.price}>
+                        {dish.price} ₽
+                    </p>
+                    <p className={styles.weight}>
+                        {dish.weight} г
+                    </p>
+                </div>
                 <button
                     className={styles.button}
                     type="button"
                 >
-                    Добавить в корзину
+                    Добавить • {dish.price} ₽
                 </button>
             </div>
-        </div>
+        </div >
     );
 };
