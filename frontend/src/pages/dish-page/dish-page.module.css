@@ -99,3 +99,25 @@
     font-size: 18px;
     font-weight: 600;
 }
+
+.image-wrapper {
+    position: relative;
+}
+
+.back {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(32, 32, 32, 0.75);
+    backdrop-filter: blur(10px);
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+}

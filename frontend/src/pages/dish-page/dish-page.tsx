@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styles from "./dish-page.module.css"
 import { getDish } from "../../api/dishes";
 import type { Dish } from "../../types/dish";
+import { ArrowLeft } from "lucide-react";
 
 export const DishPage = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
 
     const [dish, setDish] = useState<Dish | null>(null);
     const [count, setCount] = useState(1);
@@ -24,12 +26,20 @@ export const DishPage = () => {
 
     return (
         <div className={styles.page}>
-            <img
-                className={styles.image}
-                src={`${import.meta.env.VITE_API_URL}${dish.imageUrl}`}
-                alt={dish.name}
-            />
-
+            <div className={styles["image-wrapper"]}>
+                <button
+                    className={styles.back}
+                    type="button"
+                    onClick={() => navigate(-1)}
+                >
+                    <ArrowLeft size={24} strokeWidth={2.5} />
+                </button>
+                <img
+                    className={styles.image}
+                    src={`${import.meta.env.VITE_API_URL}${dish.imageUrl}`}
+                    alt={dish.name}
+                />
+            </div>
             <div className={styles.content}>
                 <h1 className={styles.title}>
                     {dish.name}
