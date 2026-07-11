@@ -8,6 +8,7 @@ export const DishPage = () => {
     const { id } = useParams();
 
     const [dish, setDish] = useState<Dish | null>(null);
+    const [count, setCount] = useState(1);
 
     useEffect(() => {
         if (!id) {
@@ -44,12 +45,29 @@ export const DishPage = () => {
                         {dish.weight} г
                     </p>
                 </div>
-                <button
-                    className={styles.button}
-                    type="button"
-                >
-                    Добавить • {dish.price} ₽
-                </button>
+                <div className={styles["bottom-bar"]}>
+                    <div className={styles.counter}>
+                        <button
+                            type="button"
+                            onClick={() => setCount((prev) => Math.max(1, prev - 1))}
+                        >
+                            −
+                        </button>
+                        <span>{count}</span>
+                        <button
+                            type="button"
+                            onClick={() => setCount((prev) => prev + 1)}
+                        >
+                            +
+                        </button>
+                    </div>
+                    <button
+                        className={styles.button}
+                        type="button"
+                    >
+                        Добавить • {dish.price * count} ₽
+                    </button>
+                </div>
             </div>
         </div >
     );

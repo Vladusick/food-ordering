@@ -51,12 +51,7 @@
 }
 
 .button {
-    position: fixed;
-    left: 50%;
-    bottom: 16px;
-    transform: translateX(-50%);
-    width: calc(100% - 32px);
-    max-width: 398px;
+    flex: 1;
     height: 56px;
     border: none;
     border-radius: 18px;
@@ -65,4 +60,42 @@
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
+}
+
+.bottom-bar {
+    position: fixed;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
+    width: calc(100% - 32px);
+    max-width: 398px;
+    display: flex;
+    gap: 12px;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 120px;
+    height: 56px;
+    padding: 0 8px;
+    border-radius: 18px;
+    background: rgb(55, 55, 55);
+}
+
+.counter button {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.counter span {
+    font-size: 18px;
+    font-weight: 600;
 }
