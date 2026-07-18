@@ -34,28 +34,38 @@ export const DishPage = () => {
                 >
                     <ArrowLeft size={24} strokeWidth={2.5} />
                 </button>
+
                 <img
                     className={styles.image}
                     src={`${import.meta.env.VITE_API_URL}${dish.imageUrl}`}
                     alt={dish.name}
                 />
             </div>
+
             <div className={styles.content}>
-                <h1 className={styles.title}>
-                    {dish.name}
-                </h1>
                 <p className={styles.description}>
                     {dish.description}
                 </p>
+            </div>
+
+            <div className={styles["dish-panel"]}>
                 <div className={styles.info}>
-                    <p className={styles.price}>
-                        {dish.price} ₽
-                    </p>
+                    <h1 className={styles.title}>
+                        {dish.name}
+                    </h1>
+
                     <p className={styles.weight}>
                         {dish.weight} г
                     </p>
+
+                    <p className={styles.price}>
+                        {dish.price} ₽
+                    </p>
+
+
                 </div>
-                <div className={styles["bottom-bar"]}>
+
+                <div className={styles.actions}>
                     <div className={styles.counter}>
                         <button
                             type="button"
@@ -63,7 +73,9 @@ export const DishPage = () => {
                         >
                             −
                         </button>
+
                         <span>{count}</span>
+
                         <button
                             type="button"
                             onClick={() => setCount((prev) => prev + 1)}
@@ -71,14 +83,15 @@ export const DishPage = () => {
                             +
                         </button>
                     </div>
+
                     <button
                         className={styles.button}
                         type="button"
                     >
-                        Добавить • {dish.price * count} ₽
+                        Добавить
                     </button>
                 </div>
             </div>
-        </div >
+        </div>
     );
 };

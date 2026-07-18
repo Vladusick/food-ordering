@@ -6,6 +6,10 @@
     color: white;
 }
 
+.image-wrapper {
+    position: relative;
+}
+
 .image {
     width: 100%;
     aspect-ratio: 1;
@@ -17,12 +21,45 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding: 20px 16px 120px;
+    padding: 20px 16px 160px;
+}
+
+.description {
+    margin: 0;
+    line-height: 1.6;
+    color: rgb(220, 220, 220);
+}
+
+.dish-panel {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    z-index: 5;
+    width: 100%;
+    max-width: 430px;
+    padding: 16px;
+    transform: translateX(-50%);
+    background: rgb(44, 44, 44);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.info {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
 }
 
 .title {
     margin: 0;
-    font-size: 28px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.price {
+    margin: 0;
+    font-size: 22px;
     font-weight: 700;
 }
 
@@ -32,43 +69,7 @@
     color: rgb(180, 180, 180);
 }
 
-.price {
-    margin: 0;
-    font-size: 26px;
-    font-weight: 700;
-}
-
-.description {
-    margin: 0;
-    line-height: 1.6;
-    color: rgb(220, 220, 220);
-}
-
-.info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.button {
-    flex: 1;
-    height: 56px;
-    border: none;
-    border-radius: 18px;
-    background: white;
-    color: black;
-    font-size: 18px;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.bottom-bar {
-    position: fixed;
-    left: 50%;
-    bottom: 16px;
-    transform: translateX(-50%);
-    width: calc(100% - 32px);
-    max-width: 398px;
+.actions {
     display: flex;
     gap: 12px;
 }
@@ -80,7 +81,7 @@
     width: 120px;
     height: 56px;
     padding: 0 8px;
-    border-radius: 18px;
+    border-radius: 12px;
     background: rgb(55, 55, 55);
 }
 
@@ -100,8 +101,16 @@
     font-weight: 600;
 }
 
-.image-wrapper {
-    position: relative;
+.button {
+    flex: 1;
+    height: 56px;
+    border: none;
+    border-radius: 12px;
+    background: white;
+    color: black;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
 }
 
 .back {
