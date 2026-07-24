@@ -4,6 +4,7 @@ import styles from "./dish-page.module.css"
 import { getDish } from "../../api/dishes";
 import type { Dish } from "../../types/dish";
 import { ArrowLeft } from "lucide-react";
+import { useCart } from "../../context/cart-context";
 
 export const DishPage = () => {
     const { id } = useParams();
@@ -11,6 +12,7 @@ export const DishPage = () => {
 
     const [dish, setDish] = useState<Dish | null>(null);
     const [count, setCount] = useState(1);
+    const { addItem, items } = useCart();
 
     useEffect(() => {
         if (!id) {
@@ -78,7 +80,7 @@ export const DishPage = () => {
 
                         <button
                             type="button"
-                            onClick={() => setCount((prev) => prev + 1)}
+                            onClick={() => setCount((prev) => Math.max(1, prev + 1))}
                         >
                             +
                         </button>
@@ -87,6 +89,10 @@ export const DishPage = () => {
                     <button
                         className={styles.button}
                         type="button"
+                        onClick={() => {
+                            navigate("/");
+                            addItem(dish)
+                        }}
                     >
                         Добавить
                     </button>

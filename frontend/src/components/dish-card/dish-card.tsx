@@ -1,3 +1,4 @@
+import { useCart } from "../../context/cart-context";
 import type { Dish } from "../../types/dish";
 import styles from "./dish-card.module.css";
 import { Link } from "react-router-dom";
@@ -8,6 +9,8 @@ type Props = {
 
 export const DishCard = ({ dish }: Props) => {
   const imageUrl = `${import.meta.env.VITE_API_URL}${dish.imageUrl}`;
+
+  const { addItem, items } = useCart();
 
   return (
     <Link
@@ -24,7 +27,7 @@ export const DishCard = ({ dish }: Props) => {
         <button className={styles.button} onClick={(e) => {
           e.preventDefault();
           e.stopPropagation();
-          alert("Тут будет добавление в корзину");
+          addItem(dish)
         }}>
           +
         </button>
