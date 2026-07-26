@@ -1,0 +1,79 @@
+.item {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px;
+
+    border-radius: 16px;
+
+    background: rgb(45, 45, 45);
+}
+
+.image {
+    width: 70px;
+    height: 70px;
+
+    border-radius: 12px;
+
+    object-fit: cover;
+}
+
+.info {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.details {
+    display: flex;
+
+    gap: 10px;
+
+    color: rgb(180, 180, 180);
+
+    font-size: 14px;
+}
+
+
+.counter {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+}
+
+.counter button {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgb(55, 55, 55);
+
+    color: white;
+
+    font-size: 26px;
+
+    cursor: pointer;
+}
+
+.counter span {
+    min-width: 20px;
+
+    text-align: center;
+
+    font-size: 18px;
+    font-weight: 600;
+}

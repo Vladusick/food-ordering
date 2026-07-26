@@ -1,8 +1,10 @@
 import { ShoppingBasket } from "lucide-react";
 import { useCart } from "../../context/cart-context";
 import styles from "./cart-button.module.css";
+import { useNavigate } from "react-router-dom";
 
 export const CartButton = () => {
+    const navigate = useNavigate();
     const { items } = useCart();
 
     const isHidden = items.length === 0;
@@ -20,6 +22,7 @@ export const CartButton = () => {
             <button
                 className={styles.button}
                 type="button"
+                onClick={() => navigate("/cart")}
             >
                 <ShoppingBasket size={22} strokeWidth={2.5} />
                 {totalPrice}₽
