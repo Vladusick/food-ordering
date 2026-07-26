@@ -9,6 +9,7 @@ import styles from "./menu-page.module.css";
 import { RestaurantHeader } from "../../components/restaraurant-header/restaurant-header";
 import { CategoryTabs } from "../../components/category-tabs/category-tabs";
 import { categories } from "../../constants/categories";
+import { CartButton } from "../../components/cart-button/cart-button";
 
 export const MenuPage = () => {
     const [dishes, setDishes] = useState<Dish[]>([]);
@@ -50,6 +51,7 @@ export const MenuPage = () => {
                     </div>
                 </section>
             ))}
+            <CartButton />
         </div>
     );
 };

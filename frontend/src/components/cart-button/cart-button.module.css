@@ -1,0 +1,44 @@
+.wrapper {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 430px;
+
+    padding: 0 16px;
+
+    display: flex;
+    justify-content: flex-end;
+
+    z-index: 50;
+
+    pointer-events: none;
+}
+
+.button {
+    pointer-events: auto;
+
+    height: 52px;
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    border: none;
+    border-radius: 26px;
+
+    background: white;
+    color: black;
+
+    font-size: 20px;
+    font-weight: 900;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+
+    cursor: pointer;
+}
