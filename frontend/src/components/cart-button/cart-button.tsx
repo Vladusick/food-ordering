@@ -1,23 +1,22 @@
-import { ShoppingBasket, ShoppingCart } from "lucide-react";
+import { ShoppingBasket } from "lucide-react";
 import { useCart } from "../../context/cart-context";
 import styles from "./cart-button.module.css";
 
 export const CartButton = () => {
     const { items } = useCart();
 
-    if (items.length === 0) {
-        return null;
-    }
+    const isHidden = items.length === 0;
 
     const totalPrice = items.reduce(
-        (sum, item) => {
-            return sum + item.dish.price * item.quantity;
-        },
+        (sum, item) => sum + item.dish.price * item.quantity,
         0
     );
 
     return (
-        <div className={styles.wrapper}>
+        <div
+            className={`${styles.wrapper} ${isHidden ? styles.hidden : ""
+                }`}
+        >
             <button
                 className={styles.button}
                 type="button"
