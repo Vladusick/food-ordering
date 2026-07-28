@@ -15,7 +15,7 @@
     margin: 0 auto;
     min-height: 100vh;
 
-    padding: 20px 16px 120px;
+    padding: 20px 16px 180px;
 
     background: rgb(32, 32, 32);
     color: white;
@@ -59,20 +59,28 @@
 .bottom-bar {
     position: fixed;
 
-    bottom: 16px;
+    bottom: 0;
     left: 50%;
 
     transform: translateX(-50%);
 
-    width: calc(100% - 32px);
-    max-width: 398px;
+    width: 100%;
+    max-width: 430px;
+
+    padding: 16px;
 
     display: flex;
     flex-direction: column;
     gap: 12px;
+
+    background: rgb(32, 32, 32);
 }
 
 .total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     font-size: 22px;
     font-weight: 700;
 }
