@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./cart-page.module.css";
 import { useCart } from "../../context/cart-context";
 import { CartItem } from "../../components/cart-item/cart-item";
+import { useEffect } from "react";
 
 export const CartPage = () => {
     const navigate = useNavigate();
@@ -14,6 +15,12 @@ export const CartPage = () => {
         return sum + item.dish.price * item.quantity;
     }, 0
     );
+
+    useEffect(() => {
+        if (items.length === 0) {
+            navigate("/", { replace: true });
+        }
+    }, [items, navigate]);
 
     return (
         <div className={styles.page}>
