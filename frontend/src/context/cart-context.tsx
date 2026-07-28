@@ -11,6 +11,8 @@ import type { CartItem } from "../types/cart";
 type CartContextValue = {
     items: CartItem[];
     addItem: (dish: Dish, quantity?: number) => void;
+    increaseItem: (dishId: number) => void;
+    decreaseItem: (dishId: number) => void;
 };
 
 const CartContext = createContext<CartContextValue | null>(null);
@@ -51,11 +53,45 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         });
     };
 
+    const increaseItem = (dishId: number) => {
+        setItems((prevItems) => {
+            return prevItems.map((cartItem) => {
+                if (cartItem.dish.id === dishId) {
+                    return {
+                        ...cartItem,
+                        quantity: cartItem.quantity + 1,
+                    };
+                }
+
+                return cartItem;
+            });
+        });
+    };
+
+    const decreaseItem = (dishId: number) => {
+        setItems((prevItems) => {
+            return prevItems
+                .map((cartItem) => {
+                    if (cartItem.dish.id === dishId) {
+                        return {
+                            ...cartItem,
+                            quantity: cartItem.quantity - 1,
+                        };
+                    }
+
+                    return cartItem;
+                })
+                .filter((cartItem) => cartItem.quantity > 0);
+        });
+    };
+
     return (
         <CartContext.Provider
             value={{
                 items,
                 addItem,
+                increaseItem,
+                decreaseItem
             }}
         >
             {children}
