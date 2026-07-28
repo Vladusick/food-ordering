@@ -10,6 +10,11 @@ export const CartPage = () => {
 
     const { items } = useCart();
 
+    const totalPrice = items.reduce((sum, item) => {
+        return sum + item.dish.price * item.quantity;
+    }, 0
+    );
+
     return (
         <div className={styles.page}>
             <div className={styles.header}>
@@ -37,7 +42,9 @@ export const CartPage = () => {
 
             <div className={styles["bottom-bar"]}>
                 <div className={styles.total}>
-                    Итого: 0 ₽
+                    <span>Итого:</span>
+
+                    <span>{totalPrice} ₽</span>
                 </div>
 
                 <button
