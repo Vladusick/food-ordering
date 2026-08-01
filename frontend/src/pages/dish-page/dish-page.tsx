@@ -91,7 +91,7 @@ export const DishPage = () => {
                         type="button"
                         onClick={() => {
                             navigate("/");
-                            addItem(dish)
+                            addItem(dish, count)
                         }}
                     >
                         Добавить
