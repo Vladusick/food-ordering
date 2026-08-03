@@ -10,7 +10,11 @@ type Props = {
 export const DishCard = ({ dish }: Props) => {
   const imageUrl = `${import.meta.env.VITE_API_URL}${dish.imageUrl}`;
 
-  const { addItem, items } = useCart();
+  const { items, addItem, increaseItem, decreaseItem } = useCart();
+
+  const cartItem = items.find(
+    (item) => item.dish.id === dish.id
+  );
 
   return (
     <Link
@@ -24,13 +28,46 @@ export const DishCard = ({ dish }: Props) => {
           alt={dish.name}
         />
 
-        <button className={styles.button} onClick={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          addItem(dish)
-        }}>
-          +
-        </button>
+
+        {cartItem ? (
+          <div
+            className={styles.counter}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
+          >
+            <button
+              type="button"
+              onClick={() => decreaseItem(dish.id)}
+            >
+              −
+            </button>
+
+            <span>{cartItem.quantity}</span>
+
+            <button
+              type="button"
+              onClick={() => increaseItem(dish.id)}
+            >
+              +
+            </button>
+          </div>
+        ) : (
+          <button
+            className={styles.button}
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              addItem(dish);
+            }}
+          >
+            +
+          </button>
+        )}
+
+
       </div>
 
       <div className={styles.content}>
