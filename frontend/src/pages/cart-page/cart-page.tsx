@@ -57,6 +57,7 @@ export const CartPage = () => {
                 <button
                     className={styles.button}
                     type="button"
+                    onClick={() => navigate("/checkout")}
                 >
                     Оформить заказ
                 </button>
