@@ -12,7 +12,7 @@ export const DishPage = () => {
 
     const [dish, setDish] = useState<Dish | null>(null);
     const [count, setCount] = useState(1);
-    const { addItem, items } = useCart();
+    const { addItem } = useCart();
 
     useEffect(() => {
         if (!id) {
