@@ -14,6 +14,13 @@ export type CreateOrderPayload = {
     items: CreateOrderItem[];
 };
 
+export type OrderItem = {
+    id: number;
+    dishId: number;
+    quantity: number;
+    price: number;
+};
+
 export type Order = {
     id: number;
     phone: string;
@@ -21,11 +28,17 @@ export type Order = {
     comment: string;
     totalPrice: number;
     createdAt: string;
+    items: OrderItem[];
 };
 
 export const createOrder = async (
     payload: CreateOrderPayload
 ): Promise<Order> => {
     const res = await axios.post(`${API_URL}/orders`, payload);
+    return res.data;
+};
+
+export const getOrders = async (): Promise<Order[]> => {
+    const res = await axios.get(`${API_URL}/orders`);
     return res.data;
 };
