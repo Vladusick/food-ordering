@@ -3,7 +3,7 @@
     min-height: 100vh;
 
     margin: 0 auto;
-    padding: 20px 16px 120px;
+    padding: 20px 16px 180px;
 
     background: rgb(32, 32, 32);
     color: white;
@@ -99,13 +99,52 @@
     overflow: hidden;
 }
 
-.page {
-    max-width: 430px;
-    min-height: 100vh;
+.bottom-bar {
+    position: fixed;
 
-    margin: 0 auto;
-    padding: 20px 16px 120px;
+    bottom: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 430px;
+
+    padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 
     background: rgb(32, 32, 32);
-    color: white;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.button {
+    height: 56px;
+
+    border: none;
+    border-radius: 18px;
+
+    background: white;
+    color: black;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.error {
+    color: rgb(255, 100, 100);
+    font-size: 13px;
+    font-weight: 500;
 }
