@@ -99,4 +99,8 @@ export class OrdersService {
       createdAt: savedOrder.createdAt,
     };
   }
+
+  async findAll(): Promise<Order[]> {
+    return this.ordersRepository.find({ relations: { items: true } });
+  }
 }

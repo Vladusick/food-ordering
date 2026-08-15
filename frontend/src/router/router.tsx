@@ -5,6 +5,7 @@ import { DishPage } from "../pages/dish-page/dish-page";
 import { CartPage } from "../pages/cart-page/cart-page";
 import { CheckoutPage } from "../pages/checkout-page/checkout-page";
 import { OrderSuccessPage } from "../pages/order-success-page/order-success-page";
+import { OrdersPage } from "../pages/orders-page/orders-page";
 
 export const router = createBrowserRouter([
     {
@@ -26,5 +27,9 @@ export const router = createBrowserRouter([
     {
         path: "/order-success/:orderId",
         element: <OrderSuccessPage />
+    },
+    {
+        path: "/admin/orders",
+        element: <OrdersPage />
     }
 ]);
