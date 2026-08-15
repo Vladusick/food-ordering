@@ -143,6 +143,11 @@
     cursor: pointer;
 }
 
+.button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 .error {
     color: rgb(255, 100, 100);
     font-size: 13px;

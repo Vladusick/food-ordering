@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DishesModule } from './dishes/dishes.module';
+import { OrdersModule } from './orders/orders.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { ConfigService } from '@nestjs/config';
@@ -32,6 +33,7 @@ import { join } from 'path';
     }),
 
     DishesModule,
+    OrdersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

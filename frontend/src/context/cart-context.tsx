@@ -1,5 +1,6 @@
 import {
     createContext,
+    useCallback,
     useContext,
     useState,
     type ReactNode,
@@ -13,6 +14,7 @@ type CartContextValue = {
     addItem: (dish: Dish, quantity?: number) => void;
     increaseItem: (dishId: number) => void;
     decreaseItem: (dishId: number) => void;
+    clearCart: () => void;
 };
 
 const CartContext = createContext<CartContextValue | null>(null);
@@ -85,13 +87,18 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         });
     };
 
+    const clearCart = useCallback(() => {
+        setItems([]);
+    }, []);
+
     return (
         <CartContext.Provider
             value={{
                 items,
                 addItem,
                 increaseItem,
-                decreaseItem
+                decreaseItem,
+                clearCart,
             }}
         >
             {children}

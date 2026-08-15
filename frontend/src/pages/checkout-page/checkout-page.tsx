@@ -7,6 +7,7 @@ import {
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./checkout-page.module.css";
+import { createOrder } from "../../api/orders";
 import { useCart } from "../../context/cart-context";
 
 export const CheckoutPage = () => {
@@ -19,6 +20,8 @@ export const CheckoutPage = () => {
 
     const [phoneError, setPhoneError] = useState("");
     const [addressError, setAddressError] = useState("");
+    const [submitError, setSubmitError] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const totalPrice = items.reduce((sum, item) => {
         return sum + item.dish.price * item.quantity;
@@ -73,18 +76,31 @@ export const CheckoutPage = () => {
         return isValid;
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (!validateForm()) {
             return;
         }
 
-        console.log({
-            phone,
-            address,
-            comment,
-            items,
-            totalPrice,
-        });
+        setIsSubmitting(true);
+        setSubmitError("");
+
+        try {
+            const order = await createOrder({
+                phone,
+                address,
+                comment: comment.trim() || undefined,
+                items: items.map((item) => ({
+                    dishId: item.dish.id,
+                    quantity: item.quantity,
+                })),
+            });
+
+            navigate(`/order-success/${order.id}`, { replace: true });
+        } catch {
+            setSubmitError("Не удалось оформить заказ. Попробуйте ещё раз.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -167,6 +183,12 @@ export const CheckoutPage = () => {
                         onChange={(e) => setComment(e.target.value)}
                     />
                 </div>
+
+                {submitError && (
+                    <span className={styles.error}>
+                        {submitError}
+                    </span>
+                )}
             </div>
 
             <div className={styles["bottom-bar"]}>
@@ -180,8 +202,9 @@ export const CheckoutPage = () => {
                     className={styles.button}
                     type="button"
                     onClick={handleSubmit}
+                    disabled={isSubmitting}
                 >
-                    Подтвердить заказ
+                    {isSubmitting ? "Отправка..." : "Подтвердить заказ"}
                 </button>
             </div>
         </div>
